@@ -1,0 +1,56 @@
+# Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Install git and clone repository
+RUN apk add --no-cache git
+RUN git clone --branch feat-add-shadcn-ui-component --depth 1 https://github.com/le-pp2402/Metube-FE.git .
+
+# Copy environment file
+COPY fe.env .env.production 
+
+# Configure npm for better network handling
+RUN npm config set fetch-retry-mintimeout 20000
+RUN npm config set fetch-retry-maxtimeout 120000
+RUN npm config set fetch-retries 10
+
+# Install dependencies and build
+RUN npm install --verbose
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Add user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy package files
+COPY --from=builder /app/package*.json ./
+
+# Configure npm for production install
+RUN npm config set fetch-retry-mintimeout 20000
+RUN npm config set fetch-retry-maxtimeout 120000
+RUN npm config set fetch-retries 10
+
+# Install only production dependencies
+RUN npm ci --only=production --omit=dev --verbose && npm cache clean --force
+
+# Copy built application
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Change ownership to nextjs user
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

@@ -26,11 +26,6 @@ The system is designed with the goal of scalability and is deployed using Docker
 
 ## Estimate system capability
 
-### RPS
-![Screenshot from 2025-06-11 14-25-21](https://github.com/user-attachments/assets/df5a9774-3e4f-43d9-887e-d1f42a4f4bc5)
-
-### Storage 
-![Screenshot from 2025-06-11 14-25-48](https://github.com/user-attachments/assets/60e00c87-cbad-4597-ae57-897f092e673f)
-
-### Network
-![Screenshot from 2025-06-11 14-25-34](https://github.com/user-attachments/assets/252abf4f-a070-4e1c-bca9-168e816b3aa6)
+![Screenshot from 2025-06-22 22-34-29](https://github.com/user-attachments/assets/c0476324-31f6-4c29-bfd0-1fb22b2b96ce)
+![Screenshot from 2025-06-22 22-34-45](https://github.com/user-attachments/assets/f74900d8-ffcf-400d-8f94-2ff163e0a0c9)
+![Screenshot from 2025-06-22 22-34-36](https://github.com/user-attachments/assets/ce8d10d9-13e5-4fa4-b4f2-e5480cd594c3)

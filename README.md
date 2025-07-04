@@ -6,7 +6,7 @@ minio.pphatdev.tech
 
 rabbitmq.pphatdev.tech
 
-ytb:  
+ytb:  https://www.youtube.com/playlist?list=PLeYhK0Ko_yra7xOaBE8roKnSctNrwq-da
 
 ## DESCRIPTION
 Focuses on efficient video processing and distribution, while simultaneously supporting video upload and live streaming.

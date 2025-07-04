@@ -1,6 +1,13 @@
 ## DEMO
-web: https://pphatdev.tech/ 
-ytb: 
+web: 
+https://pphatdev.tech/ 
+
+minio.pphatdev.tech
+
+rabbitmq.pphatdev.tech
+
+ytb:  
+
 ## DESCRIPTION
 Focuses on efficient video processing and distribution, while simultaneously supporting video upload and live streaming.
   + FFmpeg for video encoding and segmentation
